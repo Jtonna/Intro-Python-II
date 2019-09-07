@@ -9,6 +9,8 @@ class Room:
         self.e_to = None
         self.s_to = None
         self.w_to = None
+    
+    #Class functions would be added here
         
     def __str__(self):
 		return f"{self.name}"
