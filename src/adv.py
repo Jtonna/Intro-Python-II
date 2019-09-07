@@ -66,6 +66,7 @@ while not input_key.upper() == "Q":
     elif input_key == "W":
         pass
 
+    # If the input_key isnt anything defined above do this
     else:
         print(f"Sorry {player.name}, you cant move that way. Its too dangerous right now. Try something else.")
 
