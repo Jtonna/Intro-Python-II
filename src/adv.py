@@ -43,6 +43,7 @@ player = Player(room = room['outside'], name = {str(os.getlogin())})
 # If the user enters "q", quit the game.
 print (f"Hello {str(os.getlogin())}, welcome back")
 
+
 input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!")
 
 
@@ -70,4 +71,5 @@ while not input_key.upper() == "Q":
     else:
         print(f"Sorry {player.name}, you cant move that way. Its too dangerous right now. Try something else.")
 
-    input_key()
+    input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!")
+    
