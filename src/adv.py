@@ -44,16 +44,15 @@ player = Player(room = room['outside'], name = str(os.getlogin()))
 print (f"Hello {str(os.getlogin())}, welcome back")
 
 
-input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!")
+input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!").upper()
 
 
-while not input_key.upper() == "Q":
-
-    print (f"{player.room}")
+while not input_key == "Q":
     
     # Moves the user to the north room
     if input_key == "N":
-        pass
+        player.room = player.room.n_to
+        print(f"You have moved towards the {player.room}")
 
     # Moves the user to the east room
     elif input_key == "E":
@@ -71,5 +70,4 @@ while not input_key.upper() == "Q":
     else:
         print(f"Sorry {player.name}, you cant move that way. Its too dangerous right now. Try something else.")
 
-    input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!")
-    
+    input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!").upper()
