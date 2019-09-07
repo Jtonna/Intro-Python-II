@@ -1,6 +1,6 @@
-import sys
-from .player import Player
-from .room import Room
+import os
+from player import Player
+from room import Room
 
 
 # Declare all the rooms
@@ -29,7 +29,7 @@ room['treasure'].s_to = room['narrow']
 
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player(room['outside'])
+player = Player(room = room['outside'], name = {str(os.getlogin())})
 
 # Write a loop that:
 # * Prints the current room name
@@ -41,7 +41,7 @@ player = Player(room['outside'])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-print(f"Hello {str(sys.os.getlogin())}, welcome back")
+print (f"Hello {str(os.getlogin())}, welcome back")
 
 input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!")
 
@@ -67,6 +67,6 @@ while not input_key.upper() == "Q":
         pass
 
     else:
-        print(f"Sorry {str(sys.os.getlogin)}, you cant move that way. Its too dangerous right now. Try something else.")
+        print(f"Sorry {player.name}, you cant move that way. Its too dangerous right now. Try something else.")
 
     input_key()
