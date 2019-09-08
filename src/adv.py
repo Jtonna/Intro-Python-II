@@ -41,7 +41,7 @@ player = Player(room = room['outside'], name = str(os.getlogin()))
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-print (f"Hello {str(os.getlogin())}, welcome back")
+print (f"Hello {str(os.getlogin())}, welcome back! \nLooks like youve started your journy in the {player.room}")
 
 
 input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the game!").upper()
@@ -49,22 +49,29 @@ input_key = input("[N] North, [E] East, [S] South, [W] West. || [Q] to quit the 
 
 while not input_key == "Q":
     
-    # Moves the user to the north room
-    if input_key == "N":
-        player.room = player.room.n_to
+    #Re-usable class because im lazy af
+    class users_room:
         print(f"You have moved towards the {player.room}")
 
+    # Moves the user to the north room
+    if input_key == "N" and hasattr(player.room, "n_to"):
+        player.room = player.room.n_to
+        users_room()
+
     # Moves the user to the east room
-    elif input_key == "E":
-        pass
+    elif input_key == "E" and hasattr(player.room, "n_to"):
+        player.room = player.room.n_to
+        users_room()
 
     # Moves the user to the south
-    elif input_key == "S":
-        pass
+    elif input_key == "S" and hasattr(player.room, "n_to"):
+        player.room = player.room.s_to
+        users_room()
 
     # Moves the user to the west room
-    elif input_key == "W":
-        pass
+    elif input_key == "W" and hasattr(player.room, "n_to"):
+        player.room = player.room.w_to
+        users_room()
 
     # If the input_key isnt anything defined above do this
     else:
